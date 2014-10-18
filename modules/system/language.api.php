@@ -2,26 +2,13 @@
 
 /**
  * @file
- * Hooks provided by the Locale module.
+ * Hooks provided by the base system for language support.
  */
 
 /**
  * @addtogroup hooks
  * @{
  */
-
-/**
- * Allows modules to define their own text groups that can be translated.
- *
- * @param $op
- *   Type of operation. Currently, only supports 'groups'.
- */
-function hook_locale($op = 'groups') {
-  switch ($op) {
-    case 'groups':
-      return array('custom' => t('Custom'));
-  }
-}
 
 /**
  * Allows modules to act after language initialization has been performed.
@@ -165,19 +152,6 @@ function hook_language_negotiation_info_alter(array &$language_providers) {
   if (isset($language_providers['custom_language_provider'])) {
     $language_providers['custom_language_provider']['config'] = 'admin/config/regional/language/configure/custom-language-provider';
   }
-}
-
-/**
- * Allow modules to react to language settings changes.
- *
- * Every module needing to act when the number of enabled languages changes
- * should implement this. This is an "internal" hook and should not be invoked
- * elsewhere. The typical implementation would trigger some kind of rebuilding,
- * this way system components could properly react to the change of the enabled
- * languages number.
- */
-function hook_multilingual_settings_changed() {
-  field_info_cache_clear();
 }
 
 /**
