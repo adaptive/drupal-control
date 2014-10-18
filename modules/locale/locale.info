@@ -1,4 +1,3 @@
-; $Id$
 name = Locale
 description = Adds language handling functionality and enables the translation of the user interface to languages other than English.
 package = Core
@@ -8,7 +7,7 @@ files[] = locale.test
 configure = admin/config/regional/language
 
 ; Information added by drupal.org packaging script on 2011-05-25
-version = "7.1"
+version = "7.2"
 project = "drupal"
-datestamp = "1306354915"
+datestamp = "1306357016"
 
